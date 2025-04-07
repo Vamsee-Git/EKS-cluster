@@ -15,13 +15,6 @@ module "iam" {
   source = "./Modules/IAM"
 }
 
-
-# ECR Module
-module "ecr" {
-  source    = "./Modules/ECR"
-  repo_name = var.repo_name
-}
-
 # EKS Module (Cluster & Node Group)
 
 module "eks" {
