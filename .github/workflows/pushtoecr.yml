@@ -22,6 +22,11 @@ jobs:
           role-to-assume: arn:aws:iam::664418994073:role/oidc-github-newrole
           aws-region: ap-south-1
           id-token: true
+            
+            
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
         
 
       # Step 3: Log in to Amazon ECR
@@ -33,7 +38,7 @@ jobs:
       - name: Build Docker image
         run: |
           cd App/
-          docker buildx build --tag flask-app-image .
+          docker build -t flask-app-image .
           
       # Step 5: Tag and push Docker images to ECR
       - name: Push Docker image
