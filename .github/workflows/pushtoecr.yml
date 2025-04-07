@@ -32,7 +32,8 @@ jobs:
       # Step 4: Build Docker images for microservices
       - name: Build Docker image
         run: |
-          docker build -t flask-app-image ./App  # Assuming Dockerfile is in the `microservice1` folder
+          cd App/
+          docker build -t flask-app-image   # Assuming Dockerfile is in the `microservice1` folder
           
       # Step 5: Tag and push Docker images to ECR
       - name: Push Docker image
